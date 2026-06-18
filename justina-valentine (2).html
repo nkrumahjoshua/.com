@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Justina Valentine — Official</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --gold:#C9A84C;--gold-light:#F0CF82;
+  --black:#0A0A0A;--near-black:#111111;--surface:#1A1A1A;
+  --surface2:#222222;--surface3:#2A2A2A;
+  --text:#F5F5F0;--text-muted:#888880;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;padding-bottom:90px;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:14px 40px;background:rgba(10,10,10,0.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,168,76,.2);}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:4px;color:var(--gold);text-decoration:none;}
+.nav-links{display:flex;gap:20px;list-style:none;flex-wrap:wrap;align-items:center;}
+.nav-links a{color:var(--text-muted);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;transition:color .2s;cursor:pointer;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--black)!important;padding:8px 18px;border-radius:2px;font-weight:700!important;}
+.nav-cta:hover{background:var(--gold-light)!important;}
+.nav-account{display:flex;align-items:center;gap:10px;}
+.account-pill{display:flex;align-items:center;gap:8px;background:var(--surface2);border:1px solid rgba(201,168,76,.25);padding:6px 14px 6px 6px;border-radius:20px;cursor:pointer;}
+.account-avatar{width:26px;height:26px;border-radius:50%;background:var(--gold);color:var(--black);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;font-family:'Inter',sans-serif;}
+.account-name{font-size:12px;color:var(--text);font-weight:500;}
+.btn-login{background:transparent;border:1px solid rgba(255,255,255,.2);color:var(--text);padding:8px 18px;border-radius:2px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;transition:border-color .2s,color .2s;}
+.btn-login:hover{border-color:var(--gold);color:var(--gold);}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:100px 48px 60px;position:relative;overflow:hidden;background:radial-gradient(ellipse 70% 80% at 70% 50%,rgba(201,168,76,.06) 0%,transparent 70%);}
+.hero-eyebrow{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:500;}
+.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(70px,7.5vw,115px);line-height:.9;letter-spacing:3px;color:var(--text);margin-bottom:8px;}
+.hero-name span{color:var(--gold);}
+.hero-tagline{font-size:16px;color:var(--text-muted);font-weight:300;margin:14px 0 30px;max-width:420px;line-height:1.7;}
+.free-banner{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);padding:8px 16px;border-radius:20px;font-size:12px;color:var(--gold-light);margin-bottom:24px;}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-primary{background:var(--gold);color:var(--black);padding:14px 30px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;border-radius:2px;transition:background .2s,transform .15s;font-family:'Inter',sans-serif;}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px);}
+.btn-outline{background:transparent;color:var(--text);padding:14px 30px;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(255,255,255,.22);cursor:pointer;text-decoration:none;display:inline-block;border-radius:2px;transition:border-color .2s,color .2s;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.hero-stats{display:flex;gap:32px;margin-top:36px;}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--gold);line-height:1;}
+.stat-label{font-size:10px;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-top:3px;}
+.hero-visual{display:flex;justify-content:center;align-items:center;}
+.hero-img-wrap{width:380px;height:480px;border-radius:4px;overflow:hidden;border:1px solid rgba(201,168,76,.3);position:relative;}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.hero-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.7) 0%,transparent 50%);}
+.hero-badge{position:absolute;bottom:24px;left:24px;right:24px;z-index:2;background:rgba(10,10,10,.88);border:1px solid var(--gold);padding:12px 18px;border-radius:2px;}
+.hero-badge p{font-size:10px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:500;}
+.hero-badge h3{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:var(--text);margin-top:2px;}
+
+/* SECTION */
+section{padding:80px 48px;}
+.section-eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:10px;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,5vw,64px);letter-spacing:2px;line-height:1;color:var(--text);margin-bottom:12px;}
+.section-divider{width:52px;height:2px;background:var(--gold);margin-bottom:44px;}
+.free-tag{display:inline-block;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);color:var(--gold);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:20px;font-weight:600;}
+
+/* ── STICKY PLAYER ── */
+#player-bar{position:fixed;bottom:0;left:0;right:0;z-index:300;background:rgba(12,10,4,.97);border-top:1px solid rgba(201,168,76,.28);padding:0 28px;height:72px;display:none;align-items:center;gap:18px;backdrop-filter:blur(16px);}
+#player-bar.active{display:flex;}
+.player-art{width:46px;height:46px;border-radius:3px;overflow:hidden;flex-shrink:0;border:1px solid rgba(201,168,76,.2);background:var(--surface3);}
+.player-art img{width:100%;height:100%;object-fit:cover;}
+.player-info{flex:0 0 160px;min-width:0;}
+.player-title{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.player-artist{font-size:11px;color:var(--text-muted);}
+.player-controls{display:flex;align-items:center;gap:12px;}
+.ctrl-btn{background:none;border:none;color:var(--text-muted);font-size:17px;cursor:pointer;transition:color .2s;padding:4px;line-height:1;}
+.ctrl-btn:hover{color:var(--gold);}
+.play-pause-btn{width:38px;height:38px;border-radius:50%;background:var(--gold);border:none;color:var(--black);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.play-pause-btn:hover{background:var(--gold-light);}
+.player-progress{flex:1;display:flex;align-items:center;gap:10px;}
+.progress-track{flex:1;height:4px;background:rgba(255,255,255,.1);border-radius:2px;cursor:pointer;position:relative;}
+.progress-fill{height:100%;background:var(--gold);border-radius:2px;width:0%;pointer-events:none;}
+.progress-thumb{width:11px;height:11px;border-radius:50%;background:var(--gold);position:absolute;top:50%;transform:translateY(-50%);margin-left:-5px;left:0%;pointer-events:none;}
+.time-label{font-size:11px;color:var(--text-muted);font-variant-numeric:tabular-nums;white-space:nowrap;}
+.vol-wrap{display:flex;align-items:center;gap:6px;}
+.vol-wrap span{font-size:14px;color:var(--text-muted);}
+input[type=range]{accent-color:var(--gold);width:72px;cursor:pointer;}
+.player-close{background:none;border:none;cursor:pointer;transition:color .2s;font-size:18px;color:var(--text-muted);padding:4px;}
+.player-close:hover{color:var(--gold);}
+#yt-audio-host{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;overflow:hidden;}
+
+/* ── MUSIC ── */
+#music{background:var(--near-black);}
+.music-tabs{display:flex;gap:0;margin-bottom:32px;border-bottom:1px solid rgba(255,255,255,.07);}
+.music-tab{padding:11px 24px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--text-muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s;font-family:'Inter',sans-serif;}
+.music-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+.tab-pane{display:none;}
+.tab-pane.active{display:block;}
+.tracks-list{display:flex;flex-direction:column;gap:2px;}
+.track-row{display:flex;align-items:center;gap:14px;padding:11px 14px;border-radius:3px;background:var(--surface);border:1px solid transparent;transition:border-color .2s,background .2s;cursor:pointer;}
+.track-row:hover{background:var(--surface2);border-color:rgba(201,168,76,.2);}
+.track-row.playing{background:rgba(201,168,76,.07);border-color:rgba(201,168,76,.3);}
+.track-num{width:22px;text-align:center;font-size:12px;color:var(--text-muted);flex-shrink:0;font-variant-numeric:tabular-nums;}
+.track-row.playing .track-num,.track-row:hover .track-num{display:none;}
+.track-play-icon{display:none;color:var(--gold);font-size:13px;width:22px;text-align:center;flex-shrink:0;}
+.track-row.playing .track-play-icon,.track-row:hover .track-play-icon{display:block;}
+.track-art{width:40px;height:40px;border-radius:2px;overflow:hidden;flex-shrink:0;background:var(--surface3);}
+.track-art img{width:100%;height:100%;object-fit:cover;}
+.track-details{flex:1;min-width:0;}
+.track-name{font-size:13px;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.track-row.playing .track-name{color:var(--gold);}
+.track-album{font-size:11px;color:var(--text-muted);margin-top:1px;}
+.track-dur{font-size:12px;color:var(--text-muted);font-variant-numeric:tabular-nums;flex-shrink:0;}
+.free-pill{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,.12);padding:3px 8px;border-radius:10px;flex-shrink:0;font-weight:600;}
+.album-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px;}
+.album-card{background:var(--surface);border:1px solid rgba(255,255,255,.06);border-radius:4px;overflow:hidden;cursor:pointer;transition:border-color .2s,transform .2s;}
+.album-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-2px);}
+.album-cover{height:190px;position:relative;overflow:hidden;background:var(--surface3);}
+.album-cover img{width:100%;height:100%;object-fit:cover;}
+.album-play-overlay{position:absolute;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;}
+.album-card:hover .album-play-overlay{opacity:1;}
+.album-play-icon{width:48px;height:48px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--black);}
+.album-info{padding:12px 14px;}
+.album-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.album-meta{font-size:11px;color:var(--text-muted);}
+
+/* ── VIDEOS ── */
+#videos{background:var(--black);}
+.video-player-wrap{background:var(--surface);border:1px solid rgba(201,168,76,.2);border-radius:6px;overflow:hidden;margin-bottom:28px;}
+.video-screen{background:#000;aspect-ratio:16/9;position:relative;}
+.video-screen iframe{width:100%;height:100%;border:none;display:block;}
+.video-placeholder-box{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--text-muted);}
+.video-placeholder-box .big-icon{font-size:60px;opacity:.3;}
+.video-controls-bar{padding:12px 18px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.06);}
+.video-now-label{font-size:11px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;}
+.video-now-title{font-size:14px;font-weight:600;color:var(--text);margin-top:2px;}
+.video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
+.video-card{background:var(--surface);border:1px solid rgba(255,255,255,.06);border-radius:4px;overflow:hidden;cursor:pointer;transition:border-color .2s,transform .2s;}
+.video-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-2px);}
+.video-card.active{border-color:var(--gold);}
+.video-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--surface3);}
+.video-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s;}
+.video-card:hover .video-thumb img{transform:scale(1.04);}
+.video-thumb-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.video-card:hover .video-thumb-overlay,.video-card.active .video-thumb-overlay{background:rgba(0,0,0,.5);}
+.video-play-circle{width:46px;height:46px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--black);opacity:0;transform:scale(.85);transition:opacity .2s,transform .2s;}
+.video-card:hover .video-play-circle,.video-card.active .video-play-circle{opacity:1;transform:scale(1);}
+.vbadge{position:absolute;top:8px;right:8px;background:rgba(201,168,76,.9);color:var(--black);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 7px;border-radius:2px;}
+.vbadge-free{position:absolute;top:8px;left:8px;background:rgba(20,160,80,.92);color:#fff;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 7px;border-radius:2px;}
+.video-info{padding:12px 14px;}
+.video-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;line-height:1.4;}
+.video-meta-row{font-size:11px;color:var(--text-muted);display:flex;gap:10px;}
+
+/* ── GALLERY ── */
+#gallery{background:var(--near-black);}
+.gallery-filter{display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap;}
+.filter-btn{padding:7px 16px;background:transparent;border:1px solid rgba(255,255,255,.1);border-radius:2px;color:var(--text-muted);font-size:10px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;}
+.filter-btn.active,.filter-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--black);}
+.gallery-grid{columns:4 200px;gap:10px;}
+.gallery-item{break-inside:avoid;margin-bottom:10px;position:relative;overflow:hidden;border-radius:3px;border:1px solid rgba(255,255,255,.04);background:var(--surface);cursor:pointer;display:block;}
+.gallery-item img{width:100%;display:block;transition:transform .3s;}
+.gallery-item:hover img{transform:scale(1.04);}
+.gallery-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transition:background .25s;}
+.gallery-item:hover .gallery-overlay{background:rgba(0,0,0,.62);}
+.gallery-icon{opacity:0;transform:scale(.8);transition:opacity .2s,transform .2s;font-size:24px;color:var(--gold);}
+.gallery-item:hover .gallery-icon{opacity:1;transform:scale(1);}
+.gallery-cap{opacity:0;font-size:10px;color:var(--text);letter-spacing:1px;text-transform:uppercase;transition:opacity .2s;text-align:center;padding:0 10px;}
+.gallery-item:hover .gallery-cap{opacity:1;}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:500;align-items:center;justify-content:center;flex-direction:column;}
+.lightbox.active{display:flex;}
+.lb-img-wrap{max-width:88vw;max-height:78vh;position:relative;}
+.lb-img-wrap img{max-width:88vw;max-height:78vh;object-fit:contain;border:1px solid rgba(201,168,76,.2);border-radius:3px;display:block;}
+.lb-close{position:absolute;top:18px;right:24px;background:none;border:none;color:var(--text-muted);font-size:30px;cursor:pointer;z-index:10;}
+.lb-close:hover{color:var(--text);}
+.lb-nav{position:fixed;top:50%;transform:translateY(-50%);background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.25);color:var(--gold);font-size:22px;cursor:pointer;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:10;}
+.lb-nav:hover{background:rgba(201,168,76,.28);}
+.lb-prev{left:16px;}
+.lb-next{right:16px;}
+.lb-footer{margin-top:14px;text-align:center;}
+.lb-caption{font-size:12px;color:var(--text-muted);letter-spacing:1px;}
+
+/* ── MEMBERSHIP ── */
+#membership{background:var(--black);}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.card{background:var(--surface);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:32px 28px;position:relative;transition:border-color .2s,transform .2s;}
+.card:hover{border-color:rgba(201,168,76,.38);transform:translateY(-2px);}
+.card.featured{border-color:var(--gold);}
+.card-badge{position:absolute;top:-11px;left:28px;background:var(--gold);color:var(--black);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 12px;border-radius:2px;}
+.card-icon{font-size:28px;margin-bottom:20px;display:block;}
+.card-title{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--text);margin-bottom:4px;}
+.card-subtitle{font-size:11px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.card-price{display:flex;align-items:baseline;gap:3px;margin-bottom:22px;}
+.price-cur{font-size:16px;color:var(--gold);font-weight:600;}
+.price-amt{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:2px;color:var(--gold);line-height:1;}
+.price-per{font-size:12px;color:var(--text-muted);margin-left:4px;}
+.card-features{list-style:none;margin-bottom:24px;}
+.card-features li{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text-muted);padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.card-features li:last-child{border-bottom:none;}
+.fcheck{color:var(--gold);font-size:11px;margin-top:2px;flex-shrink:0;}
+.card-btn{width:100%;padding:12px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all .2s;text-align:center;display:block;text-decoration:none;font-family:'Inter',sans-serif;}
+.card-btn-gold{background:var(--gold);color:var(--black);border:none;}
+.card-btn-gold:hover{background:var(--gold-light);}
+.card-btn-out{background:transparent;color:var(--gold);border:1px solid var(--gold);}
+.card-btn-out:hover{background:rgba(201,168,76,.1);}
+
+/* FAN CARD */
+#fancard{background:var(--near-black);}
+.fancard-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+.fan-card-mockup{width:100%;max-width:360px;height:210px;background:linear-gradient(135deg,#1A1500,#2C2000,#1A1500);border:1px solid var(--gold);border-radius:12px;padding:26px;position:relative;overflow:hidden;}
+.fan-card-mockup::before{content:'';position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.08);}
+.fc-top{display:flex;justify-content:space-between;align-items:flex-start;}
+.fc-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;color:var(--gold);}
+.fc-tier{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,.1);padding:3px 9px;border-radius:2px;border:1px solid rgba(201,168,76,.22);}
+.fc-bottom{position:absolute;bottom:24px;left:26px;right:26px;}
+.fc-num{font-size:10px;letter-spacing:3px;color:rgba(201,168,76,.4);margin-bottom:5px;font-family:'Bebas Neue',sans-serif;}
+.fc-name{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;color:var(--gold-light);}
+.fc-exp{font-size:9px;color:rgba(201,168,76,.4);margin-top:3px;letter-spacing:2px;}
+.fancard-perks{list-style:none;margin-bottom:24px;}
+.fancard-perks li{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:13px;color:var(--text-muted);border-bottom:1px solid rgba(255,255,255,.04);}
+.fancard-perks li:last-child{border-bottom:none;}
+.perk-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+
+/* SUBSCRIPTION */
+#subscription{background:var(--black);}
+.sub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+.sub-card{background:var(--surface);border:1px solid rgba(255,255,255,.07);border-radius:4px;padding:28px 24px;position:relative;transition:border-color .2s,transform .2s;}
+.sub-card:hover{border-color:rgba(201,168,76,.28);transform:translateY(-2px);}
+.sub-card.featured{border-color:var(--gold);}
+.sub-icon{font-size:32px;margin-bottom:16px;display:block;}
+.sub-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--text);margin-bottom:3px;}
+.sub-price{font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--gold);line-height:1.1;}
+.sub-price span{font-size:13px;color:var(--text-muted);font-family:'Inter',sans-serif;}
+.sub-desc{font-size:12px;color:var(--text-muted);margin:10px 0 16px;line-height:1.6;}
+.sub-features{list-style:none;margin-bottom:22px;}
+.sub-features li{font-size:12px;color:var(--text-muted);padding:5px 0;display:flex;align-items:center;gap:7px;}
+.sub-check{color:var(--gold);}
+
+/* ABOUT */
+#about{background:var(--near-black);}
+.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start;}
+.about-img{border-radius:4px;overflow:hidden;border:1px solid rgba(201,168,76,.2);}
+.about-img img{width:100%;display:block;object-fit:cover;max-height:500px;}
+.about-text p{font-size:14px;color:var(--text-muted);line-height:1.8;margin-bottom:16px;}
+.about-facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px;}
+.fact-box{background:var(--surface);border:1px solid rgba(255,255,255,.06);border-radius:3px;padding:16px;}
+.fact-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:4px;}
+.fact-value{font-size:13px;color:var(--text);font-weight:500;}
+
+/* MODAL shared */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:600;align-items:center;justify-content:center;padding:16px;}
+.modal-overlay.active{display:flex;}
+.modal{background:var(--surface);border:1px solid rgba(201,168,76,.28);border-radius:4px;padding:40px;width:100%;max-width:440px;position:relative;max-height:92vh;overflow-y:auto;}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--text-muted);font-size:22px;cursor:pointer;}
+.modal-close:hover{color:var(--text);}
+.modal-title{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:2px;color:var(--text);margin-bottom:4px;}
+.modal-subtitle{font-size:12px;color:var(--text-muted);margin-bottom:26px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.form-group{margin-bottom:14px;}
+.form-group label{display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);font-weight:500;margin-bottom:5px;}
+.form-group input{width:100%;padding:11px 12px;background:var(--near-black);border:1px solid rgba(255,255,255,.09);border-radius:2px;color:var(--text);font-size:13px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;}
+.form-group input:focus{border-color:var(--gold);}
+.form-error{color:#E07A5F;font-size:11px;margin-top:6px;display:none;}
+.modal-total{background:var(--near-black);border:1px solid rgba(201,168,76,.15);border-radius:2px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;margin:18px 0;}
+.modal-total-label{font-size:11px;color:var(--text-muted);}
+.modal-total-price{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold);letter-spacing:2px;}
+.modal-submit{width:100%;padding:14px;background:var(--gold);color:var(--black);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;border:none;border-radius:2px;cursor:pointer;transition:background .2s;font-family:'Inter',sans-serif;}
+.modal-submit:hover{background:var(--gold-light);}
+.modal-submit:disabled{opacity:.5;cursor:not-allowed;}
+.success-msg{display:none;text-align:center;padding:16px 0;}
+.success-msg h3{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--gold);letter-spacing:2px;margin-bottom:8px;}
+.success-msg p{color:var(--text-muted);font-size:13px;}
+.modal-switch{text-align:center;font-size:12px;color:var(--text-muted);margin-top:18px;}
+.modal-switch a{color:var(--gold);cursor:pointer;text-decoration:none;font-weight:600;}
+.modal-divider{display:flex;align-items:center;gap:10px;margin:20px 0;color:var(--text-muted);font-size:11px;}
+.modal-divider::before,.modal-divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08);}
+.free-account-note{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:2px;padding:12px 14px;font-size:11px;color:var(--gold-light);margin-bottom:18px;line-height:1.6;}
+
+/* FOOTER */
+footer{background:var(--near-black);border-top:1px solid rgba(201,168,76,.12);padding:52px 48px 34px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:40px;}
+.footer-brand-name{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:4px;color:var(--gold);margin-bottom:8px;}
+.footer-brand-text{font-size:12px;color:var(--text-muted);line-height:1.7;max-width:220px;}
+.footer-col h4{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:8px;}
+.footer-col ul li a{color:var(--text-muted);text-decoration:none;font-size:12px;transition:color .2s;}
+.footer-col ul li a:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:22px;display:flex;justify-content:space-between;align-items:center;}
+.footer-legal{font-size:11px;color:var(--text-muted);}
+.footer-socials{display:flex;gap:10px;}
+.social-link{width:32px;height:32px;border:1px solid rgba(255,255,255,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-muted);text-decoration:none;font-size:13px;transition:all .2s;}
+.social-link:hover{border-color:var(--gold);color:var(--gold);}
+
+/* TOAST */
+#toast{position:fixed;top:80px;right:24px;z-index:700;display:flex;flex-direction:column;gap:10px;}
+.toast-item{background:var(--surface2);border:1px solid rgba(201,168,76,.3);border-radius:3px;padding:14px 18px;font-size:13px;color:var(--text);box-shadow:0 8px 24px rgba(0,0,0,.4);max-width:300px;animation:toastIn .25s ease;}
+@keyframes toastIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+
+@media(max-width:860px){
+  nav{padding:12px 18px;}
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;padding:90px 20px 50px;text-align:center;}
+  .hero-visual{display:none;}
+  .hero-buttons,.hero-stats{justify-content:center;}
+  section{padding:56px 20px;}
+  .fancard-grid,.about-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .form-row{grid-template-columns:1fr;}
+  #player-bar{padding:0 12px;gap:10px;flex-wrap:nowrap;}
+  .vol-wrap{display:none;}
+  .gallery-grid{columns:2 150px;}
+  #toast{right:12px;left:12px;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOAST CONTAINER -->
+<div id="toast"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Justina Valentine</a>
+  <ul class="nav-links">
+    <li><a onclick="scrollTo('music')">Music</a></li>
+    <li><a onclick="scrollTo('videos')">Videos</a></li>
+    <li><a onclick="scrollTo('gallery')">Gallery</a></li>
+    <li><a onclick="scrollTo('membership')">Membership</a></li>
+    <li><a onclick="scrollTo('fancard')">Fan Card</a></li>
+    <li><a onclick="scrollTo('subscription')">Subscribe</a></li>
+  </ul>
+  <div class="nav-account" id="nav-account">
+    <!-- populated by JS -->
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Official Artist Website · Passaic County, New Jersey USA</p>
+    <h1 class="hero-name">JUSTINA<br><span>VALENTINE</span></h1>
+    <p class="hero-tagline">Rapper · Singer · Songwriter · MTV Wild 'N Out Star. Stream every song and video free, right here on the official site.</p>
+    <div class="free-banner">✓ Free account · Free unlimited streaming · No credit card required</div>
+    <div class="hero-buttons">
+      <a href="#" class="btn-primary" onclick="handleStreamClick('music');return false;">▶ &nbsp;Stream Free Now</a>
+      <a href="#" class="btn-outline" onclick="scrollTo('membership');return false;">Get Membership</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num">5M+</div><div class="stat-label">Followers</div></div>
+      <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">Tracks</div></div>
+      <div class="stat-item"><div class="stat-num">17+</div><div class="stat-label">Videos</div></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-img-wrap">
+      <img src="https://i.ytimg.com/vi/PhT53yTMqdQ/maxresdefault.jpg" alt="Justina Valentine" onerror="this.style.display='none'">
+      <div class="hero-badge">
+        <p>New Jersey · USA · Active Since 2012</p>
+        <h3>Hip-Hop · R&amp;B · Soul</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section id="music">
+  <p class="section-eyebrow">Listen Now</p>
+  <h2 class="section-title">Music</h2>
+  <div class="section-divider"></div>
+  <div class="free-tag">🎧 100% Free Streaming For All Members</div>
+  <div class="music-tabs">
+    <button class="music-tab active" onclick="switchTab(event,'all')">All Songs</button>
+    <button class="music-tab" onclick="switchTab(event,'albums')">Albums &amp; EPs</button>
+    <button class="music-tab" onclick="switchTab(event,'singles')">Singles</button>
+    <button class="music-tab" onclick="switchTab(event,'collabs')">Collabs</button>
+  </div>
+  <div id="tab-all" class="tab-pane active"><div class="tracks-list" id="all-tracks"></div></div>
+  <div id="tab-albums" class="tab-pane"><div class="album-grid" id="album-grid"></div></div>
+  <div id="tab-singles" class="tab-pane"><div class="tracks-list" id="singles-tracks"></div></div>
+  <div id="tab-collabs" class="tab-pane"><div class="tracks-list" id="collabs-tracks"></div></div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos">
+  <p class="section-eyebrow">Watch Now</p>
+  <h2 class="section-title">Videos</h2>
+  <div class="section-divider"></div>
+  <div class="free-tag">🎬 100% Free Streaming For All Members</div>
+  <div class="video-player-wrap">
+    <div class="video-screen" id="video-screen">
+      <div class="video-placeholder-box">
+        <div class="big-icon">🎬</div>
+        <div style="font-size:14px;letter-spacing:1px;">Select a video below to stream — free, right here</div>
+      </div>
+    </div>
+    <div class="video-controls-bar">
+      <div>
+        <div class="video-now-label">Now Playing</div>
+        <div class="video-now-title" id="active-video-title">— Select a video to begin —</div>
+      </div>
+    </div>
+  </div>
+  <div class="video-grid" id="video-grid"></div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <p class="section-eyebrow">Photos</p>
+  <h2 class="section-title">Gallery</h2>
+  <div class="section-divider"></div>
+  <div class="free-tag">📷 Free To Browse</div>
+  <div class="gallery-filter">
+    <button class="filter-btn active" onclick="filterGallery('all',this)">All Photos</button>
+    <button class="filter-btn" onclick="filterGallery('promo',this)">Promo</button>
+    <button class="filter-btn" onclick="filterGallery('mv',this)">Music Videos</button>
+    <button class="filter-btn" onclick="filterGallery('live',this)">Live &amp; Tour</button>
+    <button class="filter-btn" onclick="filterGallery('bts',this)">Behind the Scenes</button>
+  </div>
+  <div class="gallery-grid" id="gallery-grid"></div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section id="membership">
+  <p class="section-eyebrow">Exclusive Access · Paid</p>
+  <h2 class="section-title">Membership Cards</h2>
+  <div class="section-divider"></div>
+  <p style="color:var(--text-muted);max-width:520px;margin-bottom:44px;font-size:14px;">Music and video streaming is always free for everyone with an account. Membership Cards unlock physical perks, real-world access, and VIP experiences — fees start from $500/year.</p>
+  <div class="cards-grid">
+    <div class="card">
+      <span class="card-icon">⭐</span>
+      <div class="card-title">Gold Member</div><div class="card-subtitle">Entry-Level Exclusive</div>
+      <div class="card-price"><span class="price-cur">$</span><span class="price-amt">500</span><span class="price-per">/ year</span></div>
+      <ul class="card-features">
+        <li><span class="fcheck">✓</span> Official Gold Membership Card (physical)</li>
+        <li><span class="fcheck">✓</span> 10% merch discount</li>
+        <li><span class="fcheck">✓</span> Monthly newsletter</li>
+        <li><span class="fcheck">✓</span> Member-only badge on profile</li>
+        <li><span class="fcheck">✓</span> Free streaming included (same as all accounts)</li>
+      </ul>
+      <a href="#" class="card-btn card-btn-out" onclick="openCheckout('Gold Membership Card',500);return false;">Get Gold Card</a>
+    </div>
+    <div class="card featured">
+      <div class="card-badge">Most Popular</div>
+      <span class="card-icon">💎</span>
+      <div class="card-title">Platinum Member</div><div class="card-subtitle">Fan Favorite Tier</div>
+      <div class="card-price"><span class="price-cur">$</span><span class="price-amt">1200</span><span class="price-per">/ year</span></div>
+      <ul class="card-features">
+        <li><span class="fcheck">✓</span> Official Platinum Membership Card</li>
+        <li><span class="fcheck">✓</span> Everything in Gold</li>
+        <li><span class="fcheck">✓</span> Early access to new releases</li>
+        <li><span class="fcheck">✓</span> 25% merch discount</li>
+        <li><span class="fcheck">✓</span> Monthly live Q&amp;A with Justina</li>
+      </ul>
+      <a href="#" class="card-btn card-btn-gold" onclick="openCheckout('Platinum Membership Card',1200);return false;">Get Platinum Card</a>
+    </div>
+    <div class="card">
+      <span class="card-icon">👑</span>
+      <div class="card-title">Diamond VIP</div><div class="card-subtitle">Ultimate Experience</div>
+      <div class="card-price"><span class="price-cur">$</span><span class="price-amt">2500</span><span class="price-per">/ year</span></div>
+      <ul class="card-features">
+        <li><span class="fcheck">✓</span> Official Diamond VIP Card</li>
+        <li><span class="fcheck">✓</span> Everything in Platinum</li>
+        <li><span class="fcheck">✓</span> Backstage meet &amp; greet passes</li>
+        <li><span class="fcheck">✓</span> Signed merchandise package</li>
+        <li><span class="fcheck">✓</span> 1-on-1 video call with Justina</li>
+      </ul>
+      <a href="#" class="card-btn card-btn-out" onclick="openCheckout('Diamond VIP Card',2500);return false;">Get Diamond Card</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAN CARD -->
+<section id="fancard">
+  <p class="section-eyebrow">Collector's Item · Paid</p>
+  <h2 class="section-title">Official Fan Card</h2>
+  <div class="section-divider"></div>
+  <div class="fancard-grid">
+    <div>
+      <div class="fan-card-mockup">
+        <div class="fc-top"><div class="fc-logo">JV</div><div class="fc-tier">VIP Fan</div></div>
+        <div class="fc-bottom">
+          <div class="fc-num">★ ★ ★ ★ ★ ★ ★ ★</div>
+          <div class="fc-name">YOUR NAME HERE</div>
+          <div class="fc-exp">Valid 2025 – 2026 · Official Fan Card</div>
+        </div>
+      </div>
+      <br>
+      <a href="#" class="btn-primary" onclick="openCheckout('Official Fan Card',500);return false;">Order Fan Card — $500</a>
+    </div>
+    <div>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:var(--text);margin-bottom:14px;">What's Included</h3>
+      <ul class="fancard-perks">
+        <li><span class="perk-dot"></span>Physical gold-foil collector's card mailed worldwide</li>
+        <li><span class="perk-dot"></span>Your name embossed on the card</li>
+        <li><span class="perk-dot"></span>Unique limited-edition fan number</li>
+        <li><span class="perk-dot"></span>Certificate of authenticity signed by Justina</li>
+        <li><span class="perk-dot"></span>Exclusive members-only Fan Group access</li>
+        <li><span class="perk-dot"></span>Birthday shoutout on Justina's socials</li>
+        <li><span class="perk-dot"></span>Priority event ticket access</li>
+      </ul>
+      <p style="font-size:11px;color:var(--text-muted);">Limited to 1,000 copies per season. Ships within 14 business days.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIPTION / FAN GROUP -->
+<section id="subscription">
+  <p class="section-eyebrow">Stay Connected · Paid</p>
+  <h2 class="section-title">Fan Group &amp; Subscriptions</h2>
+  <div class="section-divider"></div>
+  <div class="sub-grid">
+    <div class="sub-card">
+      <span class="sub-icon">📺</span>
+      <div class="sub-title">Channel Pass</div>
+      <div class="sub-price">$500 <span>/ year</span></div>
+      <p class="sub-desc">Private YouTube channel, Instagram Close Friends and TikTok exclusives — beyond the free public catalog.</p>
+      <ul class="sub-features">
+        <li><span class="sub-check">✓</span>Private channel content</li>
+        <li><span class="sub-check">✓</span>Instagram Close Friends</li>
+        <li><span class="sub-check">✓</span>TikTok exclusive content</li>
+        <li><span class="sub-check">✓</span>Behind-the-scenes clips</li>
+      </ul>
+      <a href="#" class="card-btn card-btn-out" onclick="openCheckout('Channel Pass',500);return false;">Subscribe</a>
+    </div>
+    <div class="sub-card featured">
+      <div class="card-badge">Best Value</div>
+      <span class="sub-icon">👥</span>
+      <div class="sub-title">Fan Group</div>
+      <div class="sub-price">$800 <span>/ year</span></div>
+      <p class="sub-desc">Join Justina's private Fan Group — community chat, blog, fashion diary and direct updates.</p>
+      <ul class="sub-features">
+        <li><span class="sub-check">✓</span>Private fan group chat access</li>
+        <li><span class="sub-check">✓</span>Personal blog &amp; diary posts</li>
+        <li><span class="sub-check">✓</span>Fashion lookbooks</li>
+        <li><span class="sub-check">✓</span>Direct fan message board</li>
+      </ul>
+      <a href="#" class="card-btn card-btn-gold" onclick="openCheckout('Fan Group Membership',800);return false;">Join Fan Group</a>
+    </div>
+    <div class="sub-card">
+      <span class="sub-icon">🌟</span>
+      <div class="sub-title">Full Bundle</div>
+      <div class="sub-price">$1500 <span>/ year</span></div>
+      <p class="sub-desc">Channel Pass + Fan Group combined — everything Justina shares, you get it first.</p>
+      <ul class="sub-features">
+        <li><span class="sub-check">✓</span>Everything in Channel Pass</li>
+        <li><span class="sub-check">✓</span>Everything in Fan Group</li>
+        <li><span class="sub-check">✓</span>Monthly surprise drops</li>
+        <li><span class="sub-check">✓</span>Priority DMs &amp; support</li>
+      </ul>
+      <a href="#" class="card-btn card-btn-out" onclick="openCheckout('Full Bundle',1500);return false;">Subscribe</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-eyebrow">The Artist</p>
+  <h2 class="section-title">About Justina</h2>
+  <div class="section-divider"></div>
+  <div class="about-grid">
+    <div class="about-img">
+      <img src="https://i.ytimg.com/vi/YAvo90i92JU/maxresdefault.jpg" alt="Justina Valentine" onerror="this.parentElement.style.background='var(--surface)';this.style.display='none'">
+    </div>
+    <div class="about-text">
+      <p>Justina Valentine is an American rapper, singer, songwriter, TV host and model from Passaic County, New Jersey. Raised in a family of musicians, she studied dance and worked in theatre before channelling everything into hip-hop and R&amp;B.</p>
+      <p>She launched her career in 2012 on the Vans Warped Tour, dropping her debut mixtape <em>Route 80</em>. Her 2015 collab with Fetty Wap, <em>Candy Land</em>, put her on the map worldwide. The 2016 album <em>Scarlet Letter</em> and mixtape <em>Feminem</em> cemented her as a force to be reckoned with.</p>
+      <p>Best known as a cast member on MTV's <em>Wild 'N Out</em> alongside Nick Cannon since 2016, Justina is known for her razor-sharp freestyle, bold red hair, and zero-compromise attitude.</p>
+      <div class="about-facts">
+        <div class="fact-box"><div class="fact-label">Origin</div><div class="fact-value">Passaic County, NJ</div></div>
+        <div class="fact-box"><div class="fact-label">Genre</div><div class="fact-value">Hip-Hop · R&amp;B · Soul</div></div>
+        <div class="fact-box"><div class="fact-label">Known For</div><div class="fact-value">Wild 'N Out · MTV</div></div>
+        <div class="fact-box"><div class="fact-label">Active Since</div><div class="fact-value">2012 — Present</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">Justina Valentine</div>
+      <p class="footer-brand-text">Official website of Justina Valentine — rapper, singer, and MTV Wild 'N Out star from New Jersey.</p>
+    </div>
+    <div class="footer-col"><h4>Media</h4><ul>
+      <li><a onclick="scrollTo('music')">Music</a></li>
+      <li><a onclick="scrollTo('videos')">Videos</a></li>
+      <li><a onclick="scrollTo('gallery')">Gallery</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Shop</h4><ul>
+      <li><a onclick="scrollTo('membership')">Membership</a></li>
+      <li><a onclick="scrollTo('fancard')">Fan Cards</a></li>
+      <li><a onclick="scrollTo('subscription')">Fan Group</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Info</h4><ul>
+      <li><a onclick="scrollTo('about')">About</a></li>
+      <li><a href="mailto:justinamanagement@gmail.com">Contact</a></li>
+      <li><a href="mailto:justinamanagement@gmail.com">Booking</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">© 2025 Justina Valentine. All rights reserved.</div>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/justinavalentine" target="_blank" class="social-link" title="Instagram">ig</a>
+      <a href="https://twitter.com/JustinaMusic" target="_blank" class="social-link" title="X / Twitter">𝕏</a>
+      <a href="https://www.youtube.com/channel/UCQh7Q87jrEXisdlJSqHla0w" target="_blank" class="social-link" title="YouTube">▶</a>
+      <a href="https://www.tiktok.com/@justinavalentine" target="_blank" class="social-link" title="TikTok">tt</a>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY PLAYER -->
+<div id="player-bar">
+  <div class="player-art" id="player-art"><img id="player-art-img" src="" alt=""></div>
+  <div class="player-info">
+    <div class="player-title" id="player-title">—</div>
+    <div class="player-artist">Justina Valentine</div>
+  </div>
+  <div class="player-controls">
+    <button class="ctrl-btn" onclick="prevTrack()" title="Previous">⏮</button>
+    <button class="play-pause-btn" id="play-pause-btn" onclick="togglePlay()">▶</button>
+    <button class="ctrl-btn" onclick="nextTrack()" title="Next">⏭</button>
+  </div>
+  <div class="player-progress">
+    <span class="time-label" id="time-current">0:00</span>
+    <div class="progress-track" id="progress-track" onclick="seekTrack(event)">
+      <div class="progress-fill" id="progress-fill"></div>
+      <div class="progress-thumb" id="progress-thumb"></div>
+    </div>
+    <span class="time-label" id="time-total">0:00</span>
+  </div>
+  <div class="vol-wrap">
+    <span>🔊</span>
+    <input type="range" id="vol-slider" min="0" max="100" step="5" value="80" oninput="setVol(this.value)">
+  </div>
+  <button class="player-close" onclick="closePlayer()">×</button>
+</div>
+<div id="yt-audio-host"></div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()">×</button>
+  <button class="lb-nav lb-prev" onclick="lbNav(-1)">‹</button>
+  <div class="lb-img-wrap" id="lb-img-wrap"><img id="lb-img" src="" alt=""></div>
+  <button class="lb-nav lb-next" onclick="lbNav(1)">›</button>
+  <div class="lb-footer">
+    <div class="lb-caption" id="lb-caption"></div>
+  </div>
+</div>
+
+<!-- AUTH MODAL: SIGNUP -->
+<div class="modal-overlay" id="signup-modal" onclick="if(event.target===this)closeAuthModals()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeAuthModals()">×</button>
+    <div class="modal-title">Create Account</div>
+    <div class="modal-subtitle">Free forever. Stream all music &amp; videos instantly.</div>
+    <div class="free-account-note">✓ 100% free — no payment required to stream music or videos. You'll only be asked to pay if you choose a Membership Card, Fan Card, or Fan Group subscription.</div>
+    <div class="form-group"><label>Full Name</label><input type="text" id="su-name" placeholder="Your full name"/></div>
+    <div class="form-group"><label>Email Address</label><input type="email" id="su-email" placeholder="you@email.com"/></div>
+    <div class="form-group"><label>Password</label><input type="password" id="su-pass" placeholder="Create a password (min 6 characters)"/></div>
+    <div class="form-error" id="su-error"></div>
+    <button class="modal-submit" onclick="doSignup()">Create Free Account</button>
+    <div class="modal-switch">Already have an account? <a onclick="switchToLogin()">Log in</a></div>
+  </div>
+</div>
+
+<!-- AUTH MODAL: LOGIN -->
+<div class="modal-overlay" id="login-modal" onclick="if(event.target===this)closeAuthModals()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeAuthModals()">×</button>
+    <div class="modal-title">Log In</div>
+    <div class="modal-subtitle">Welcome back. Your music is waiting.</div>
+    <div class="form-group"><label>Email Address</label><input type="email" id="li-email" placeholder="you@email.com"/></div>
+    <div class="form-group"><label>Password</label><input type="password" id="li-pass" placeholder="Your password"/></div>
+    <div class="form-error" id="li-error"></div>
+    <button class="modal-submit" onclick="doLogin()">Log In</button>
+    <div class="modal-switch">New here? <a onclick="switchToSignup()">Create a free account</a></div>
+  </div>
+</div>
+
+<!-- ACCOUNT MENU MODAL -->
+<div class="modal-overlay" id="account-modal" onclick="if(event.target===this)closeAuthModals()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeAuthModals()">×</button>
+    <div class="modal-title">My Account</div>
+    <div class="modal-subtitle" id="account-email-display"></div>
+    <div class="free-account-note" id="account-status-note">Free account · Unlimited streaming included</div>
+    <button class="modal-submit" onclick="doLogout()" style="background:transparent;border:1px solid rgba(255,255,255,.2);color:var(--text);">Log Out</button>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL (paid items only) -->
+<div class="modal-overlay" id="checkout-modal" onclick="if(event.target===this)closeCheckout()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeCheckout()">×</button>
+    <div id="checkout-form-area">
+      <div class="modal-title">Checkout</div>
+      <div class="modal-subtitle" id="checkout-item-name"></div>
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" placeholder="First name"/></div>
+        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Last name"/></div>
+      </div>
+      <div class="form-group"><label>Email Address</label><input type="email" id="checkout-email" placeholder="you@email.com"/></div>
+      <div class="form-group"><label>Card Number</label><input type="text" placeholder="4242 4242 4242 4242" maxlength="19"/></div>
+      <div class="form-row">
+        <div class="form-group"><label>Expiry</label><input type="text" placeholder="MM / YY" maxlength="7"/></div>
+        <div class="form-group"><label>CVV</label><input type="text" placeholder="123" maxlength="3"/></div>
+      </div>
+      <div class="modal-total">
+        <span class="modal-total-label">Total Due Today</span>
+        <span class="modal-total-price" id="checkout-price">$500</span>
+      </div>
+      <button class="modal-submit" onclick="submitCheckout()">Complete Purchase</button>
+    </div>
+    <div class="success-msg" id="checkout-success">
+      <h3>🎉 Welcome!</h3>
+      <p>Your order is confirmed. Check your email for access details.</p>
+      <br>
+      <button class="modal-submit" onclick="closeCheckout()">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+// ═══════════════════════════════════════════════
+//  ACCOUNT SYSTEM (free signup/login — persisted via window.storage)
+// ═══════════════════════════════════════════════
+let currentUser = null;
+
+function showToast(msg){
+  const t = document.createElement('div');
+  t.className = 'toast-item';
+  t.textContent = msg;
+  document.getElementById('toast').appendChild(t);
+  setTimeout(()=>{ t.style.opacity='0'; t.style.transition='opacity .3s'; setTimeout(()=>t.remove(),300); }, 3200);
+}
+
+function initials(name){
+  return name.trim().split(/\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase();
+}
+
+function renderNavAccount(){
+  const el = document.getElementById('nav-account');
+  if(currentUser){
+    el.innerHTML = `<div class="account-pill" onclick="openAccountModal()">
+        <div class="account-avatar">${initials(currentUser.name||currentUser.email)}</div>
+        <div class="account-name">${(currentUser.name||currentUser.email).split(' ')[0]}</div>
+      </div>`;
+  } else {
+    el.innerHTML = `<button class="btn-login" onclick="openLoginModal()">Log In</button>
+      <button class="nav-cta" style="border:none;cursor:pointer;" onclick="openSignupModal()">Sign Up Free</button>`;
+  }
+}
+
+async function loadSession(){
+  try{
+    const r = await window.storage.get('session:current', false);
+    if(r && r.value){
+      const sess = JSON.parse(r.value);
+      currentUser = sess;
+    }
+  }catch(e){ currentUser = null; }
+  renderNavAccount();
+}
+
+async function saveSession(user){
+  currentUser = user;
+  try{ await window.storage.set('session:current', JSON.stringify(user), false); }catch(e){}
+  renderNavAccount();
+}
+
+async function clearSession(){
+  currentUser = null;
+  try{ await window.storage.delete('session:current', false); }catch(e){}
+  renderNavAccount();
+}
+
+function validEmail(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+
+async function doSignup(){
+  const name = document.getElementById('su-name').value.trim();
+  const email = document.getElementById('su-email').value.trim().toLowerCase();
+  const pass = document.getElementById('su-pass').value;
+  const errEl = document.getElementById('su-error');
+  errEl.style.display='none';
+
+  if(!name || !email || !pass){ errEl.textContent='Please fill in all fields.'; errEl.style.display='block'; return; }
+  if(!validEmail(email)){ errEl.textContent='Please enter a valid email address.'; errEl.style.display='block'; return; }
+  if(pass.length<6){ errEl.textContent='Password must be at least 6 characters.'; errEl.style.display='block'; return; }
+
+  try{
+    let existing = null;
+    try{ existing = await window.storage.get('user:'+email, true); }catch(e){ existing = null; }
+    if(existing && existing.value){
+      errEl.textContent='An account already exists with this email. Try logging in.';
+      errEl.style.display='block';
+      return;
+    }
+    const userRecord = { name, email, pass, joined: new Date().toISOString() };
+    await window.storage.set('user:'+email, JSON.stringify(userRecord), true);
+    await saveSession({ name, email });
+    closeAuthModals();
+    showToast('Welcome, '+name.split(' ')[0]+'! Your free account is ready — stream away.');
+  }catch(e){
+    errEl.textContent='Something went wrong creating your account. Please try again.';
+    errEl.style.display='block';
+  }
+}
+
+async function doLogin(){
+  const email = document.getElementById('li-email').value.trim().toLowerCase();
+  const pass = document.getElementById('li-pass').value;
+  const errEl = document.getElementById('li-error');
+  errEl.style.display='none';
+
+  if(!email || !pass){ errEl.textContent='Please enter your email and password.'; errEl.style.display='block'; return; }
+
+  try{
+    let rec = null;
+    try{ rec = await window.storage.get('user:'+email, true); }catch(e){ rec=null; }
+    if(!rec || !rec.value){ errEl.textContent='No account found with that email. Try signing up.'; errEl.style.display='block'; return; }
+    const user = JSON.parse(rec.value);
+    if(user.pass !== pass){ errEl.textContent='Incorrect password.'; errEl.style.display='block'; return; }
+    await saveSession({ name:user.name, email:user.email });
+    closeAuthModals();
+    showToast('Welcome back, '+user.name.split(' ')[0]+'!');
+  }catch(e){
+    errEl.textContent='Something went wrong logging in. Please try again.';
+    errEl.style.display='block';
+  }
+}
+
+async function doLogout(){
+  await clearSession();
+  closeAuthModals();
+  showToast('You have been logged out.');
+}
+
+function openSignupModal(){ closeAuthModals(); document.getElementById('signup-modal').classList.add('active'); }
+function openLoginModal(){ closeAuthModals(); document.getElementById('login-modal').classList.add('active'); }
+function openAccountModal(){
+  closeAuthModals();
+  document.getElementById('account-email-display').textContent = currentUser.email;
+  document.getElementById('account-modal').classList.add('active');
+}
+function switchToLogin(){ closeAuthModals(); openLoginModal(); }
+function switchToSignup(){ closeAuthModals(); openSignupModal(); }
+function closeAuthModals(){
+  ['signup-modal','login-modal','account-modal'].forEach(id=>document.getElementById(id).classList.remove('active'));
+  ['su-error','li-error'].forEach(id=>document.getElementById(id).style.display='none');
+}
+
+// Gate: require login before streaming (free signup, but must have an account)
+function requireAccount(actionFn){
+  if(currentUser){ actionFn(); }
+  else { showToast('Create a free account to start streaming.'); openSignupModal(); }
+}
+function handleStreamClick(sectionId){
+  if(currentUser){ scrollTo(sectionId); }
+  else { openSignupModal(); }
+}
+function scrollTo(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
+
+// ═══════════════════════════════════════════════
+//  CATALOG DATA (real YouTube IDs powering embedded native player)
+// ═══════════════════════════════════════════════
+const TRACKS = [
+  {id:1,  title:"Love Affair",          album:"Single 2025",       year:2025, dur:"3:28", type:"single",  ytId:"YAvo90i92JU"},
+  {id:2,  title:"Money Up",             album:"Single 2024",       year:2024, dur:"3:15", type:"single",  ytId:"Mb3YeKlRAEM"},
+  {id:3,  title:"Voices",               album:"Single 2024",       year:2024, dur:"3:44", type:"single",  ytId:"RUjG-s5W-jc"},
+  {id:4,  title:"Strawberry Soda",      album:"Infrared",          year:2020, dur:"3:31", type:"album",   ytId:"PhT53yTMqdQ"},
+  {id:5,  title:"Fuhgeddabout Christmas",album:"Holiday Single",   year:2022, dur:"3:02", type:"single",  ytId:"HY5HpSacgBg"},
+  {id:6,  title:"Love You Better",      album:"Single 2023",       year:2023, dur:"3:22", type:"single",  ytId:"lVW3VFmvkho"},
+  {id:7,  title:"Candy Land (ft. Fetty Wap)", album:"Scarlet Letter",year:2016,dur:"3:40",type:"collab",  ytId:"yDK-xZEPHhI"},
+  {id:8,  title:"Feminem [JUSTINA VALENTINE]",album:"Feminem",     year:2018, dur:"2:58", type:"album",   ytId:"I5TS3JmnJUI"},
+  {id:9,  title:"The Real Justina",     album:"Feminem",           year:2017, dur:"2:52", type:"album",   ytId:"31wfACOSWXc"},
+  {id:10, title:"All The Way Up (Remix)",album:"Scarlet Letter",   year:2016, dur:"3:15", type:"collab",  ytId:"oZ9DGAAfrlQ"},
+  {id:11, title:"Strawberry Soda (Lyric)", album:"Infrared",       year:2019, dur:"3:31", type:"album",   ytId:"WyFGzrU-eXs"},
+  {id:12, title:"Strawberry Soda (Studio Master)", album:"Infrared",year:2020,dur:"3:05", type:"album",   ytId:"SuUhKunaZPs"},
+];
+
+const ALBUMS_DATA = [
+  {title:"Infrared",       year:2020, tracks:8,  ytId:"PhT53yTMqdQ",    label:"Empire Records"},
+  {title:"Scarlet Letter", year:2016, tracks:12, ytId:"yDK-xZEPHhI",    label:"Ncredible Entertainment"},
+  {title:"Feminem",        year:2017, tracks:10, ytId:"I5TS3JmnJUI",    label:"Independent"},
+  {title:"Red Velvet",     year:2014, tracks:9,  ytId:"31wfACOSWXc",    label:"Independent"},
+];
+
+const VIDEOS_DATA = [
+  {id:1,  title:"Love Affair — Official Video",         year:2025, quality:"4K", dur:"3:28",  type:"MV",   ytId:"YAvo90i92JU"},
+  {id:2,  title:"Money Up — Official Video",            year:2024, quality:"4K", dur:"3:15",  type:"MV",   ytId:"Mb3YeKlRAEM"},
+  {id:3,  title:"Voices — Official Video",              year:2024, quality:"HD", dur:"3:44",  type:"MV",   ytId:"RUjG-s5W-jc"},
+  {id:4,  title:"Strawberry Soda — Official Video",     year:2020, quality:"HD", dur:"3:31",  type:"MV",   ytId:"PhT53yTMqdQ"},
+  {id:5,  title:"Fuhgeddabout Christmas — Official MV", year:2022, quality:"HD", dur:"3:02",  type:"MV",   ytId:"HY5HpSacgBg"},
+  {id:6,  title:"Love You Better — Official Video",     year:2023, quality:"HD", dur:"3:22",  type:"MV",   ytId:"lVW3VFmvkho"},
+  {id:7,  title:"Candy Land ft. Fetty Wap — Official MV",year:2016,quality:"HD",dur:"3:40",  type:"MV",   ytId:"yDK-xZEPHhI"},
+  {id:8,  title:"Justina Valentine [FEMINEM]",          year:2018, quality:"HD", dur:"2:58",  type:"MV",   ytId:"I5TS3JmnJUI"},
+  {id:9,  title:"The Real Justina — Official Video",    year:2017, quality:"HD", dur:"2:52",  type:"MV",   ytId:"31wfACOSWXc"},
+  {id:10, title:"All The Way Up — Remix",               year:2016, quality:"HD", dur:"3:15",  type:"MV",   ytId:"oZ9DGAAfrlQ"},
+  {id:11, title:"Strawberry Soda — Lyric Video",        year:2019, quality:"HD", dur:"3:31",  type:"Lyric",ytId:"WyFGzrU-eXs"},
+  {id:12, title:"Strawberry Soda — Behind The Scenes",  year:2020, quality:"HD", dur:"8:00",  type:"BTS",  ytId:"KlJpaD38fEY"},
+];
+
+const ytThumb = (id, q='hqdefault') => id ? `https://i.ytimg.com/vi/${id}/${q}.jpg` : '';
+
+const PHOTOS = [
+  {id:1,  cap:"Love Affair — Promo 2025",        cat:"promo", src: ytThumb("YAvo90i92JU","maxresdefault")},
+  {id:2,  cap:"Money Up — Music Video 2024",      cat:"mv",    src: ytThumb("Mb3YeKlRAEM","maxresdefault")},
+  {id:3,  cap:"Voices — Official Video 2024",     cat:"mv",    src: ytThumb("RUjG-s5W-jc","maxresdefault")},
+  {id:4,  cap:"Strawberry Soda — Official MV",    cat:"mv",    src: ytThumb("PhT53yTMqdQ","maxresdefault")},
+  {id:5,  cap:"Fuhgeddabout Christmas MV",        cat:"mv",    src: ytThumb("HY5HpSacgBg","maxresdefault")},
+  {id:6,  cap:"Love You Better — Official MV",    cat:"mv",    src: ytThumb("lVW3VFmvkho","maxresdefault")},
+  {id:7,  cap:"Candy Land ft. Fetty Wap",         cat:"mv",    src: ytThumb("yDK-xZEPHhI","maxresdefault")},
+  {id:8,  cap:"Feminem — Official Video",         cat:"mv",    src: ytThumb("I5TS3JmnJUI","maxresdefault")},
+  {id:9,  cap:"The Real Justina",                 cat:"promo", src: ytThumb("31wfACOSWXc","maxresdefault")},
+  {id:10, cap:"All The Way Up Remix",             cat:"live",  src: ytThumb("oZ9DGAAfrlQ","maxresdefault")},
+  {id:11, cap:"Strawberry Soda Lyric Video",      cat:"mv",    src: ytThumb("WyFGzrU-eXs","maxresdefault")},
+  {id:12, cap:"Strawberry Soda — Behind The Scenes",cat:"bts", src: ytThumb("KlJpaD38fEY","maxresdefault")},
+  {id:13, cap:"Money Up — Visualizer",            cat:"promo", src: ytThumb("QO-k6Wbf0z0","maxresdefault")},
+  {id:14, cap:"Love Affair — Official Version",   cat:"promo", src: ytThumb("cgH_eOGfz54","maxresdefault")},
+  {id:15, cap:"Live Performance Promo",           cat:"live",  src: ytThumb("Mb3YeKlRAEM","sddefault")},
+  {id:16, cap:"Studio Sessions",                  cat:"bts",   src: ytThumb("RUjG-s5W-jc","sddefault")},
+  {id:17, cap:"Backstage at MTV Wild N Out",      cat:"bts",   src: ytThumb("I5TS3JmnJUI","sddefault")},
+];
+
+// ═══════════════════════════════════════════════
+//  EMBEDDED NATIVE AUDIO PLAYER
+//  Uses a hidden YouTube IFrame Player API instance as the
+//  audio engine. Custom controls only — no YouTube UI/branding,
+//  no redirect, playback stays fully on this page.
+// ═══════════════════════════════════════════════
+let ytPlayer = null;
+let ytReady = false;
+let curTrackIdx = -1;
+let isPlaying = false;
+let progressTimer = null;
+
+function onYouTubeIframeAPIReady(){
+  ytPlayer = new YT.Player('yt-audio-host', {
+    height:'1', width:'1',
+    playerVars:{ autoplay:0, controls:0, disablekb:1, modestbranding:1, rel:0 },
+    events:{
+      onReady: ()=>{ ytReady=true; ytPlayer.setVolume(80); },
+      onStateChange: onPlayerStateChange
+    }
+  });
+}
+
+function onPlayerStateChange(e){
+  if(e.data === YT.PlayerState.ENDED){ nextTrack(); }
+  if(e.data === YT.PlayerState.PLAYING){
+    isPlaying = true;
+    document.getElementById('play-pause-btn').textContent='⏸';
+    startProgressLoop();
+  }
+  if(e.data === YT.PlayerState.PAUSED){
+    isPlaying = false;
+    document.getElementById('play-pause-btn').textContent='▶';
+  }
+}
+
+function fmtTime(s){ if(!s||isNaN(s)||s<0) s=0; const m=Math.floor(s/60),sec=Math.floor(s%60); return m+':'+(sec<10?'0':'')+sec; }
+
+function startProgressLoop(){
+  clearInterval(progressTimer);
+  progressTimer = setInterval(()=>{
+    if(!ytPlayer || !ytPlayer.getCurrentTime) return;
+    const cur = ytPlayer.getCurrentTime() || 0;
+    const dur = ytPlayer.getDuration() || 0;
+    const pct = dur>0 ? (cur/dur)*100 : 0;
+    document.getElementById('progress-fill').style.width = pct+'%';
+    document.getElementById('progress-thumb').style.left = pct+'%';
+    document.getElementById('time-current').textContent = fmtTime(cur);
+    document.getElementById('time-total').textContent = fmtTime(dur);
+  }, 500);
+}
+
+function playTrack(idx){
+  if(!currentUser){ showToast('Create a free account to start streaming.'); openSignupModal(); return; }
+  if(!ytReady){ showToast('Player is loading — try again in a second.'); return; }
+  curTrackIdx = idx;
+  const t = TRACKS[idx];
+  document.getElementById('player-title').textContent = t.title;
+  const img = document.getElementById('player-art-img');
+  img.src = t.ytId ? ytThumb(t.ytId) : '';
+  img.style.display = t.ytId ? 'block' : 'none';
+  document.getElementById('player-bar').classList.add('active');
+  ytPlayer.loadVideoById(t.ytId);
+  ytPlayer.playVideo();
+  document.querySelectorAll('.track-row').forEach((r,i)=>r.classList.toggle('playing',i===idx));
+}
+
+function togglePlay(){
+  if(!ytPlayer) return;
+  if(isPlaying){ ytPlayer.pauseVideo(); } else { ytPlayer.playVideo(); }
+}
+function prevTrack(){ if(curTrackIdx<0) return; playTrack((curTrackIdx-1+TRACKS.length)%TRACKS.length); }
+function nextTrack(){ if(curTrackIdx<0) return; playTrack((curTrackIdx+1)%TRACKS.length); }
+function seekTrack(e){
+  if(!ytPlayer || !ytPlayer.getDuration) return;
+  const rect=document.getElementById('progress-track').getBoundingClientRect();
+  const pct=Math.max(0,Math.min(1,(e.clientX-rect.left)/rect.width));
+  const dur = ytPlayer.getDuration() || 0;
+  ytPlayer.seekTo(pct*dur, true);
+}
+function setVol(v){ if(ytPlayer && ytPlayer.setVolume) ytPlayer.setVolume(parseInt(v)); }
+function closePlayer(){
+  clearInterval(progressTimer);
+  if(ytPlayer && ytPlayer.stopVideo) ytPlayer.stopVideo();
+  isPlaying=false;
+  document.getElementById('player-bar').classList.remove('active');
+  document.querySelectorAll('.track-row').forEach(r=>r.classList.remove('playing'));
+}
+
+// ═══════════════════════════════════════════════
+//  RENDER TRACKS
+// ═══════════════════════════════════════════════
+function buildTrackHTML(tracks){
+  return tracks.map((t)=>{
+    const i = TRACKS.indexOf(t);
+    return `<div class="track-row" id="tr-${i}" onclick="playTrack(${i})">
+      <div class="track-num">${String(i+1).padStart(2,'0')}</div>
+      <div class="track-play-icon">▶</div>
+      <div class="track-art"><img src="${ytThumb(t.ytId)}" alt="" onerror="this.style.display='none'" loading="lazy"></div>
+      <div class="track-details">
+        <div class="track-name">${t.title}</div>
+        <div class="track-album">${t.album} · ${t.year}</div>
+      </div>
+      <div class="track-dur">${t.dur}</div>
+      <span class="free-pill">FREE</span>
+    </div>`;
+  }).join('');
+}
+function renderAllTracks(){ document.getElementById('all-tracks').innerHTML = buildTrackHTML(TRACKS); }
+function renderSingles(){ document.getElementById('singles-tracks').innerHTML = buildTrackHTML(TRACKS.filter(t=>t.type==='single')); }
+function renderCollabs(){ document.getElementById('collabs-tracks').innerHTML = buildTrackHTML(TRACKS.filter(t=>t.type==='collab')); }
+function renderAlbums(){
+  document.getElementById('album-grid').innerHTML = ALBUMS_DATA.map(a=>{
+    const firstIdx = TRACKS.findIndex(t=>t.album===a.title);
+    return `<div class="album-card" onclick="playTrack(${firstIdx>=0?firstIdx:0})">
+      <div class="album-cover">
+        <img src="${ytThumb(a.ytId,'maxresdefault')}" alt="${a.title}" onerror="this.style.display='none'" loading="lazy">
+        <div class="album-play-overlay"><div class="album-play-icon">▶</div></div>
+      </div>
+      <div class="album-info">
+        <div class="album-title">${a.title}</div>
+        <div class="album-meta">${a.year} · ${a.tracks} tracks · ${a.label}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+function switchTab(e, tab){
+  document.querySelectorAll('.music-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById('tab-'+tab).classList.add('active');
+  if(tab==='all') renderAllTracks();
+  else if(tab==='albums') renderAlbums();
+  else if(tab==='singles') renderSingles();
+  else if(tab==='collabs') renderCollabs();
+}
+
+// ═══════════════════════════════════════════════
+//  VIDEOS — embedded native player (custom-skinned, no redirect)
+// ═══════════════════════════════════════════════
+let activeVideoId = null;
+function renderVideos(){
+  document.getElementById('video-grid').innerHTML = VIDEOS_DATA.map(v=>`
+    <div class="video-card" id="vc-${v.id}" onclick="playVideo(${v.id})">
+      <div class="video-thumb">
+        <img src="${ytThumb(v.ytId,'maxresdefault')}" alt="${v.title}" onerror="this.src='${ytThumb(v.ytId,'hqdefault')}'" loading="lazy">
+        <div class="video-thumb-overlay"><div class="video-play-circle">▶</div></div>
+        <div class="vbadge">${v.type}</div>
+        <div class="vbadge-free">FREE</div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">${v.title}</div>
+        <div class="video-meta-row"><span>${v.quality}</span><span>${v.dur}</span><span>${v.year}</span></div>
+      </div>
+    </div>`).join('');
+}
+
+function playVideo(id){
+  if(!currentUser){ showToast('Create a free account to start streaming.'); openSignupModal(); return; }
+  const v = VIDEOS_DATA.find(x=>x.id===id);
+  activeVideoId = id;
+  document.querySelectorAll('.video-card').forEach(c=>c.classList.remove('active'));
+  document.getElementById('vc-'+id).classList.add('active');
+  document.getElementById('active-video-title').textContent = v.title;
+  document.getElementById('video-screen').innerHTML =
+    `<iframe src="https://www.youtube.com/embed/${v.ytId}?autoplay=1&rel=0&modestbranding=1&controls=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+  document.getElementById('video-screen').scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+// ═══════════════════════════════════════════════
+//  GALLERY
+// ═══════════════════════════════════════════════
+let lbPhotos=[], lbIdx=0;
+function renderGallery(cat='all'){
+  const photos = cat==='all' ? PHOTOS : PHOTOS.filter(p=>p.cat===cat);
+  lbPhotos = photos;
+  document.getElementById('gallery-grid').innerHTML = photos.map((p,i)=>`
+    <div class="gallery-item" onclick="openLightbox(${i})">
+      <img src="${p.src}" alt="${p.cap}" loading="lazy" onerror="this.style.display='none'">
+      <div class="gallery-overlay">
+        <div class="gallery-icon">🔍</div>
+        <div class="gallery-cap">${p.cap}</div>
+      </div>
+    </div>`).join('');
+}
+function filterGallery(cat,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGallery(cat);
+}
+function openLightbox(idx){
+  lbIdx=idx;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow='hidden';
+  updateLb();
+}
+function updateLb(){
+  const p=lbPhotos[lbIdx];
+  document.getElementById('lb-img').src=p.src;
+  document.getElementById('lb-img').alt=p.cap;
+  document.getElementById('lb-caption').textContent=p.cap+' ('+(lbIdx+1)+'/'+lbPhotos.length+')';
+}
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow=''; }
+function lbNav(dir){ lbIdx=(lbIdx+dir+lbPhotos.length)%lbPhotos.length; updateLb(); }
+
+// ═══════════════════════════════════════════════
+//  PAID CHECKOUT (membership / fan card / fan group only)
+// ═══════════════════════════════════════════════
+function openCheckout(item,price){
+  document.getElementById('checkout-item-name').textContent=item;
+  document.getElementById('checkout-price').textContent='$'+price.toLocaleString();
+  document.getElementById('checkout-form-area').style.display='block';
+  document.getElementById('checkout-success').style.display='none';
+  if(currentUser) document.getElementById('checkout-email').value = currentUser.email;
+  document.getElementById('checkout-modal').classList.add('active');
+}
+function closeCheckout(){ document.getElementById('checkout-modal').classList.remove('active'); }
+function submitCheckout(){
+  document.getElementById('checkout-form-area').style.display='none';
+  document.getElementById('checkout-success').style.display='block';
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){ closeCheckout(); closeLightbox(); closeAuthModals(); }
+  if(document.getElementById('lightbox').classList.contains('active')){
+    if(e.key==='ArrowLeft') lbNav(-1);
+    if(e.key==='ArrowRight') lbNav(1);
+  }
+});
+
+// ═══════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════
+renderAllTracks();
+renderVideos();
+renderGallery();
+loadSession();
+</script>
+</body>
+</html>
